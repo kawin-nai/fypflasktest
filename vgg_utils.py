@@ -1,22 +1,9 @@
-import keras_vggface
-import pandas as pd
-import tensorflow as tf
-import numpy as np
-import os
-import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from tensorflow.keras import backend as K
-import mtcnn
 from scipy.spatial.distance import cosine
-from sklearn.model_selection import train_test_split
 from PIL import Image
-from keras_vggface.vggface import VGGFace
-# from keras_vggface.utils import preprocess_input
 from tensorflow.keras.applications import vgg16
-# from tensorflow.keras.applications.imagenet_utils import preprocess_input
-from scipy.spatial import distance
-import cv2
 
 
 def extract_faces(img_path, detector, required_size=(224, 224)):
