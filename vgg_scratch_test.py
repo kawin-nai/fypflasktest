@@ -1,4 +1,9 @@
-from vgg_utils import *
+import os
+
+import mtcnn
+from tensorflow.keras.models import Model
+
+from vgg_utils_withsave import *
 from vgg_scratch import *
 import cv2
 
@@ -43,7 +48,8 @@ for persons in os.listdir(verified_path):
     images = []
     for image in os.listdir(os.path.join(verified_path, persons)):
         full_img_path = os.path.join(verified_path, persons, image)
-        images.append(full_img_path)
+        if full_img_path[-3:] == "jpg":
+            images.append(full_img_path)
         # Get embeddings
     embeddings = get_embeddings(images, detector, vgg_descriptor)
     if embeddings is None:
